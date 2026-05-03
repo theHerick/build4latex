@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
     } catch (err) {
       return NextResponse.json({ 
         error: 'Servidor não possui LaTeX instalado (pdflatex não encontrado).',
-        details: 'Se você está na Vercel, note que o ambiente Serverless não suporta compilação LaTeX nativa. Considere usar um servidor dedicado ou uma API externa.'
+        details: 'O ambiente atual não suporta compilação LaTeX nativa. Certifique-se de que o pdflatex está instalado no servidor.'
       }, { status: 500 });
     }
 

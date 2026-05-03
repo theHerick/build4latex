@@ -17,7 +17,7 @@
 
 <p><b>Web-based LaTeX Compiler · Docker-Powered · Instant PDF Generation</b></p>
 
-<img src="https://img.shields.io/badge/Runtime-Docker-blue?logo=docker" alt="Docker" />
+<img src="https://img.shields.io/badge/Status-Online-brightgreen?logo=render" alt="Status" />
 <img src="https://img.shields.io/badge/Engine-pdflatex-green?logo=latex" alt="LaTeX" />
 <img src="https://img.shields.io/badge/Framework-Next.js-black?logo=nextdotjs" alt="Next.js" />
 <img src="https://img.shields.io/badge/license-MIT-purple" alt="License" />
@@ -100,7 +100,7 @@ build4latex/
 │   │   └── page.tsx    # Premium Modeler UI
 │   └── components/     # Shared UI components
 ├── public/             # Static assets
-└── vercel.json         # Deployment configuration
+└── package.json        # Dependencies & scripts
 ```
 
 <div align="center">
