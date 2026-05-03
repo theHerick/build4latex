@@ -12,28 +12,10 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [logs, setLogs] = useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
-  const [engineReady, setEngineReady] = useState(false);
   
-  const runnerRef = useRef<any>(null);
+  // O runnerRef foi removido pois agora usamos o backend Docker.
 
-  // Initialize BusyTeX on mount
-  useEffect(() => {
-    const initEngine = async () => {
-      try {
-        const { BusyTexRunner } = await import('texlyre-busytex');
-        const runner = new BusyTexRunner({
-          busytexBasePath: '/core/busytex',
-          verbose: true
-        });
-        // We initialize when needed to avoid heavy loading on mount if not used
-        runnerRef.current = runner;
-        setEngineReady(true);
-      } catch (err) {
-        console.error('Failed to load LaTeX engine:', err);
-      }
-    };
-    initEngine();
-  }, []);
+  // A inicialização do BusyTeX foi removida para focar no backend Docker.
 
   const inspectZip = async (zipFile: File) => {
     try {
@@ -124,7 +106,7 @@ export default function Home() {
           transition={{ delay: 0.1 }}
         >
           <div className="big-button-container">
-            {!engineReady ? (
+            {false ? (
               <div style={{ textAlign: 'center', padding: '2rem' }}>
                 <Loader2 className="loading-spinner" size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
                 <p style={{ color: '#64748b' }}>Preparando motor LaTeX...</p>

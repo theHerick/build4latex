@@ -28,7 +28,7 @@
 
 ## What is Build4Latex?
 
-**Build4Latex** (InfinixLatex) is a professional, cloud-native platform for compiling LaTeX documents instantly. 
+**Build4Latex** is a professional, cloud-native platform for compiling LaTeX documents instantly. 
 
 Stop wrestling with local TeX distributions. Upload your project ZIP, and get your PDF in seconds through a high-performance Dockerized backend.
 
