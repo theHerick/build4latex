@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       }, { status: 500 });
     }
 
-    // Overleaf-style multi-pass compilation
+    // High-performance multi-pass compilation
     async function runCompilation(isRetry = false) {
       const runPass = async (cmd: string, label: string) => {
         try {

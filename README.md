@@ -1,37 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<pre>
+    ██████╗ ██╗   ██╗██╗██╗     ██████╗ 
+    ██╔══██╗██║   ██║██║██║     ██╔══██╗
+    ██████╔╝██║   ██║██║██║     ██║  ██║
+    ██╔══██╗██║   ██║██║██║     ██║  ██║
+    ██████╔╝╚██████╔╝██║███████╗██████╔╝
+    ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ 
+    ██╗  ██╗██╗      █████╗ ████████╗███████╗██╗  ██╗
+    ██║  ██║██║     ██╔══██╗╚══██╔══╝██╔════╝╚██╗██╔╝
+    ███████║██║     ███████║   ██║   █████╗   ╚███╔╝ 
+    ╚════██║██║     ██╔══██║   ██║   ██╔══╝   ██╔██╗ 
+         ██║███████╗██║  ██║   ██║   ███████╗██╔╝ ██╗
+         ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+</pre>
 
-First, run the development server:
+<p><b>Web-based LaTeX Compiler · Docker-Powered · Instant PDF Generation</b></p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<img src="https://img.shields.io/badge/Runtime-Docker-blue?logo=docker" alt="Docker" />
+<img src="https://img.shields.io/badge/Engine-pdflatex-green?logo=latex" alt="LaTeX" />
+<img src="https://img.shields.io/badge/Framework-Next.js-black?logo=nextdotjs" alt="Next.js" />
+<img src="https://img.shields.io/badge/license-MIT-purple" alt="License" />
+
+</div>
+
+---
+
+## What is Build4Latex?
+
+**Build4Latex** (InfinixLatex) is a professional, cloud-native platform for compiling LaTeX documents instantly. 
+
+Stop wrestling with local TeX distributions. Upload your project ZIP, and get your PDF in seconds through a high-performance Dockerized backend.
+
+```text
+You (.zip) → Build4Latex → .pdf
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Designed for speed, reliability, and a premium user experience.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build4Latex provides a seamless compilation pipeline using an advanced multi-pass logic:
 
-## Learn More
+```text
+build4latex.onrender.com
+            │
+            ▼
+       API Handler  ──→  receives ZIP & extracts to temp workspace
+            │
+            ▼
+      Docker Engine ──→  runs pdflatex (multi-pass for refs/bib)
+            │
+          ┌─┴─┐
+          │   │
+          ▼   ▼
+      PDF File   Logs   ──→  instant download or error diagnostics
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*   **Dockerized Backend** — Full TeX Live environment isolated in a secure container.
+*   **Multi-Pass Compilation** — Automatically runs pdflatex multiple times to resolve citations, cross-references, and BibTeX.
+*   **Smart Root Detection** — Recursively finds your `main.tex` even in complex folder structures.
+*   **Premium Interface** — Built with Next.js, Framer Motion, and Lucide for a "wow" first impression.
+*   **Zero Configuration** — No local LaTeX installation required. Just upload and compile.
+*   **Error Diagnostics** — Real-time log extraction to help you fix LaTeX syntax errors quickly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+| Component | Technology |
+|---|---|
+| **Frontend** | Next.js (React 19), Framer Motion, Lucide Icons |
+| **Backend** | Next.js API Routes (Node 20) |
+| **Infrastructure** | Docker, Render, TeX Live (pdflatex) |
+| **Zip Handling** | Adm-Zip, JSZip |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# build4latex
+**Build4Latex** is optimized for **Render** using Docker runtimes.
+
+```bash
+# To run locally:
+docker build -t build4latex .
+docker run -p 3000:3000 build4latex
+```
+
+**Required Settings on Render:**
+- **Runtime:** Docker
+- **Instance Type:** Free (or higher for faster builds)
+
+## Project Structure
+
+```text
+build4latex/
+├── Dockerfile          # Multi-stage LaTeX setup
+├── src/
+│   ├── app/
+│   │   ├── api/        # Backend compilation logic
+│   │   └── page.tsx    # Premium Modeler UI
+│   └── components/     # Shared UI components
+├── public/             # Static assets
+└── vercel.json         # Deployment configuration
+```
+
+<div align="center">
+Made by Tiburski, Herick B.
+</div>

@@ -113,7 +113,7 @@ export default function Home() {
         >
           <h1 className="hero-title">Compilar arquivos LaTeX</h1>
           <p className="hero-subtitle">
-            Compilação profissional 100% no seu navegador via WebAssembly.
+            Compilação profissional e instantânea com backend Docker de alta performance.
           </p>
         </motion.div>
 
@@ -127,7 +127,7 @@ export default function Home() {
             {!engineReady ? (
               <div style={{ textAlign: 'center', padding: '2rem' }}>
                 <Loader2 className="loading-spinner" size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
-                <p style={{ color: '#64748b' }}>Preparando motor LaTeX (WASM)...</p>
+                <p style={{ color: '#64748b' }}>Preparando motor LaTeX...</p>
               </div>
             ) : (
               <label className="upload-zone">
@@ -191,7 +191,7 @@ export default function Home() {
                     {status === 'compiling' ? (
                       <>
                         <Loader2 className="loading-spinner" size={18} />
-                        Compilando (WASM)...
+                        Compilando...
                       </>
                     ) : (
                       <>
