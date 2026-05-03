@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/core/busytex/:path*",
+      "destination": "https://texlyre.github.io/texlyre-busytex/core/busytex/:path*"
+    }
+  ]
+}
