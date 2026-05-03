@@ -1,5 +1,5 @@
 # Usar uma imagem base leve com Node.js
-FROM node:18-slim
+FROM node:20-slim
 
 # Instalar o LaTeX (pdflatex) e dependências necessárias
 # Usamos o texlive-latex-extra para suporte a mais pacotes
