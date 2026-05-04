@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     texlive-latex-extra \
     texlive-fonts-recommended \
     texlive-lang-portuguese \
+    texlive-publishers \
+    texlive-bibtex-extra \
     ghostscript \
     && rm -rf /var/lib/apt/lists/*
 
