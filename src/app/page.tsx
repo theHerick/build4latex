@@ -9,7 +9,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { Octokit } from "@octokit/rest";
 
 export default function Home() {
-  const { data: session, status: sessionStatus } = useSession();
+  const sessionData = useSession();
+  const session = sessionData?.data;
+  const sessionStatus = sessionData?.status;
+  
   const [file, setFile] = useState<File | null>(null);
   const [zipEntries, setZipEntries] = useState<string[]>([]);
   // File System State
