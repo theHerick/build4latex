@@ -452,6 +452,20 @@ export default function Home() {
           <div className="ide-pdf-header">
             <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#334155' }}>PDF</span>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
+              {pdfUrl && (
+                <button 
+                  className="ide-compile-btn"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = pdfUrl;
+                    link.download = `${file?.name.replace('.zip', '') || 'compiled'}.pdf`;
+                    link.click();
+                  }}
+                  style={{ background: '#10b981' }}
+                >
+                  <Download size={14} /> Exportar PDF
+                </button>
+              )}
               {selectedRepo ? (
                 <button 
                   className="ide-compile-btn"
@@ -459,7 +473,7 @@ export default function Home() {
                   disabled={status === 'compiling'}
                   style={{ background: '#0f172a' }}
                 >
-                  <FileText size={14} /> Salvar Git
+                  <FileText size={14} /> Commit
                 </button>
               ) : sessionStatus === "authenticated" && (
                 <button 
